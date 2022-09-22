@@ -16,8 +16,9 @@ struct TaskEditView: View {
     @State var desc: String
     @State var dueDate: Date
     @State var scheduleTime: Bool
+    @State var categories: String
     
-    @State var choiceCategory = "Select a category"
+    //@State var categories = "Select a category"
    
     
     init(passedTaskItem: TaskItem?, initialDate: Date) {
@@ -27,6 +28,8 @@ struct TaskEditView: View {
             _desc = State(initialValue: taskItem.desc ?? "")
             _dueDate = State(initialValue: taskItem.dueDate ?? initialDate)
             _scheduleTime = State(initialValue: taskItem.scheduleTime)
+            
+            _categories = State(initialValue: taskItem.categories ?? "")
 //            _isArchived = State(initialValue: <#T##_#>)
         }
         else {
@@ -34,6 +37,8 @@ struct TaskEditView: View {
             _desc = State(initialValue: "")
             _dueDate = State(initialValue: initialDate)
             _scheduleTime = State(initialValue: false)
+            
+            _categories = State(initialValue: "")
         }
     }
     
@@ -54,30 +59,31 @@ struct TaskEditView: View {
             Section(header: Text("Category")){
                 Menu {
                     Button(action: {
-                        choiceCategory = "Events"
+                        categories = "Work"
+                        
                     }, label: {
-                        Text("Events")
+                        Text("Work")
+                    } )
+                    Button(action: {
+                        categories = "Studies"
+                    }, label: {
+                        Text("Studies")
                     })
                     Button(action: {
-                        choiceCategory = "Sports"
-                    }, label: {
-                        Text("Sports")
-                    })
-                    Button(action: {
-                        choiceCategory = "Shopping"
+                        categories = "Shopping"
                     }, label: {
                         Text("Shopping")
                     })
                     Button(action: {
-                        choiceCategory = "Something"
+                        categories = "Fun"
                     }, label: {
-                        Text("Something")
+                        Text("Fun")
                     })
                     
                     
                 } label: {
                     Label(
-                        title: {Text("\(choiceCategory)")}, icon: {Image(systemName: "map")}
+                        title: {Text("\(categories)")}, icon: {Image(systemName: "map")}
                     )
                 }.foregroundColor(.black)
                 
@@ -115,6 +121,8 @@ struct TaskEditView: View {
             selectedTaskItem?.name = name
             selectedTaskItem?.dueDate = dueDate
             selectedTaskItem?.scheduleTime = scheduleTime
+            
+            selectedTaskItem?.categories = categories
             
             
             dateHolder.saveContext(viewContext)

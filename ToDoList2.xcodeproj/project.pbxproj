@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF07FB2F28C8EC7A0013210C /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07FB2E28C8EC7A0013210C /* CategoryModel.swift */; };
+		CF07FB2F28C8EC7A0013210C /* CategoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07FB2E28C8EC7A0013210C /* CategoryFilter.swift */; };
 		CF07FB3128C8ED8E0013210C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07FB3028C8ED8E0013210C /* CategoryView.swift */; };
 		CF5477B028B4FC4600D2D98D /* ToDoList2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5477AF28B4FC4600D2D98D /* ToDoList2App.swift */; };
 		CF5477B228B4FC4600D2D98D /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5477B128B4FC4600D2D98D /* TaskListView.swift */; };
@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF07FB2E28C8EC7A0013210C /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		CF07FB2E28C8EC7A0013210C /* CategoryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilter.swift; sourceTree = "<group>"; };
 		CF07FB3028C8ED8E0013210C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CF5477AC28B4FC4600D2D98D /* Check It Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check It Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5477AF28B4FC4600D2D98D /* ToDoList2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList2App.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				CF5477B828B4FC4700D2D98D /* Persistence.swift */,
 				CF5477CE28B53E5200D2D98D /* TaskItemExtension.swift */,
 				CF5477D228B63F0400D2D98D /* TaskFilter.swift */,
-				CF07FB2E28C8EC7A0013210C /* CategoryModel.swift */,
+				CF07FB2E28C8EC7A0013210C /* CategoryFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,7 +207,7 @@
 				CF5477CA28B511D600D2D98D /* TaskCell.swift in Sources */,
 				CF5477D128B6336E00D2D98D /* DateScroller.swift in Sources */,
 				CF5477C528B4FEA400D2D98D /* TaskEditView.swift in Sources */,
-				CF07FB2F28C8EC7A0013210C /* CategoryModel.swift in Sources */,
+				CF07FB2F28C8EC7A0013210C /* CategoryFilter.swift in Sources */,
 				CF5477BC28B4FC4700D2D98D /* ToDoList2.xcdatamodeld in Sources */,
 				CF5477B028B4FC4600D2D98D /* ToDoList2App.swift in Sources */,
 				CF07FB3128C8ED8E0013210C /* CategoryView.swift in Sources */,

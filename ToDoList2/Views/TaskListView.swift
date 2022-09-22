@@ -16,6 +16,14 @@ struct TaskListView: View {
     
     @State private var alertdelete = false
     
+    @State var selectedCategory : String = ""
+    @State var selectedCategoryFilter = CategoryFilter.All
+    @State var isCategoryFiltered : Bool = false
+    @State var isCategoryAll : Bool = true
+    
+    @State var isFilter : Bool = false
+    
+    
     var body: some View {
         NavigationView {
             VStack{
@@ -23,11 +31,11 @@ struct TaskListView: View {
                     .padding()
                     .environmentObject(dateHolder)
                 
-                CategoryView()
+                CategoryView(selectedCategory: $selectedCategory, isCategoryFiltered: $isCategoryFiltered, isCategoryAll : $isCategoryAll)
                 
                 ZStack {
                     List {
-                        ForEach(filteredTaskItems()) { taskItem in
+                        ForEach(isCategoryFiltered ? filteredCategory() : filteredTaskItems()) { taskItem in
                             HStack {
                                 NavigationLink(destination: TaskEditView(passedTaskItem: taskItem, initialDate: Date()).environmentObject(dateHolder)) {
                                     
@@ -82,7 +90,9 @@ struct TaskListView: View {
                                     filter in
                                     Text(filter.rawValue)
                                 }
-                            }
+                            }.onTapGesture(perform: {
+                                isCategoryFiltered = false
+                            })
                         }
                         
                     }
@@ -114,8 +124,25 @@ struct TaskListView: View {
             return dateHolder.taskItems.filter{ $0.isArchived}
         }
         
+        
         return dateHolder.taskItems.filter{ !$0.isArchived }
     }
+    
+    func filteredCategory() -> [TaskItem]{
+        
+        
+        if isCategoryAll {
+            return dateHolder.taskItems.filter{
+                !$0.isArchived
+            }
+                
+        } else {
+            return dateHolder.taskItems.filter{ !$0.isArchived && $0.categories == selectedCategory }
+        }
+        
+    }
+    
+    
     
     
 //    private func deleteItems(offsets: IndexSet) {

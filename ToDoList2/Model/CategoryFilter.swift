@@ -10,12 +10,12 @@ import SwiftUI
 enum CategoryFilter: String{
     
     static var allCategoryFilters: [CategoryFilter]{
-        return [.All, .Events, .Shopping, .Sports, .Studies]
+        return [.All, .Work, .Shopping, .Studies, .Fun]
     }
     
     case All = "All"
-    case Events = "Events"
+    case Work = "Work"
     case Shopping = "Shopping"
-    case Sports = "Sports"
     case Studies = "Studies"
+    case Fun = "Fun"
 }

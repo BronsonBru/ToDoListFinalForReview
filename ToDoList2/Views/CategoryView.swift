@@ -8,25 +8,35 @@
 import SwiftUI
 
 struct CategoryView: View {
+    @EnvironmentObject var dateHolder: DateHolder
+    @State var selectedCategoryFilter = CategoryFilter.All
+    @Binding var selectedCategory : String
+    @Binding var isCategoryFiltered : Bool
+    @Binding var isCategoryAll : Bool
+    
     var body: some View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0){
-                    ForEach(["All","Events","Shopping","Sports","Studies"], id: \.self){ tab in
+                    ForEach(["All","Work","Studies","Shopping","Fun"], id: \.self){ tab in
                         Button {
                             withAnimation(.easeInOut){
-        //                        currentTab = tab
+                                selectedCategory = tab
+                                isCategoryFiltered = true
+                                if tab == "All" {
+                                    isCategoryAll = true
+                                   
+                                } else {
+                                    isCategoryAll = false
+                                    
+                                }
                             }
+                            print(selectedCategory)
                         } label: {
                             Text(tab)
-        //                        .foregroundColor(currentTab == tab ? CustomColor.UCToffWhitecolor: CustomColor.UCTlightBluecolor)
+       
                                 .padding(.vertical,6)
                                 .padding(.horizontal,20)
                                 .background{
-        //                            if currentTab == tab{
-        //                                Capsule()
-        //                                    .fill(CustomColor.UCTlightBluecolor)
-        //                                    .matchedGeometryEffect(id: "TAB", in: animation)
-        //                            }
                                 }.contentShape(Capsule())
                         }
                         
@@ -35,11 +45,13 @@ struct CategoryView: View {
                 .padding(.bottom, 5)
             }
         }
+  
+    
     }
 
 
-struct CategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryView()
-    }
-}
+//struct CategoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryView()
+//    }
+//}
